@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>j2me在线模拟器</title>
+<title>a j2me online emulator</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1"> 
  
@@ -321,27 +321,27 @@
 				var localjars=document.getElementById('localjars');
 				if(localjars.options.length==0)
 				{
-					alert("没有要删除的jar!");
+					alert("no jars to delete!");
 					return;
 				}
 				if(localjars.selectedIndex<0 || localjars.selectedIndex>=localjars.options.length)
 				{
-					alert("请选择jar名称!");
+					alert("please choose a name for the jar!");
 					return;
 				}
 				var jarname = localjars.options[localjars.selectedIndex].text;
 				console.log(jarname);
-				let res = confirm('确定删除 '+jarname+' ？');
+				let res = confirm('are you sure you want to delete '+jarname+' ？');
 				if(res)
 				{
 					JARStore.deleteJar(jarname).then
 				(
 					()=>{ 
-						alert(jarname+"删除成功！"); 
+						alert(jarname+"deleted！"); 
 						refreshGameList();
 				},  
 					(errname)=>{
-						alert(errname+"删除失败！"); 
+						alert(errname+"delete fail！"); 
 					}
 					); 
 				} 
@@ -354,7 +354,7 @@
 				const _file = _files[0];  
 				if(!_file.name.toLowerCase().endsWith('.jar'))
 				{
-					alert("只能上传jar格式!");
+					alert("only *.jar!");
 					return;
 				}
 				//fs.createUniqueFile("/Phone",_file.name,_file);
@@ -364,11 +364,11 @@
 					JARStore.installJAR(_file.name,readRes.target.result).then
 					(
 						()=>{ 
-							alert(_file.name+"安装成功！"); 
+							alert(_file.name+"installed！"); 
 							refreshGameList();
 					},  
 						(errname)=>{
-							alert(errname+"安装失败！"); 
+							alert(errname+"failed！"); 
 						}
 						);	
 				document.getElementById("jarFileupload").value= null;
@@ -502,28 +502,28 @@
 			<div style="height:64px;"> 
 				<img src="img/kybc6.png" width="60" height="60"></img>
 			</div> 
-			狂野飙车6
+			Asphalt 6: Adrenaline
 		 </a>
 
 		 <a style="height:100px;width:80px;text-align:center;" href="javascript:void(0)"onclick="openJar('pvz.jar','Game');">
 			<div style="height:64px;"> 
 				<img src="img/pvz.png" style="margin-top:15px"></img>
 			</div>
-			植物大战僵尸
+			Plants vs. Zombies
 		 </a> 
 
 		 <a style="height:100px;width:80px;text-align:center;" href="javascript:void(0)"onclick="openJar('ckxt3.jar','GloftASBR');">
 			<div style="height:64px;"> 
 				<img src="img/ckxt3.png" style="margin-top:0px"></img>
 			</div>
-			刺客信条3
+			Assassin's Creed 3
 		 </a> 
 		 
 		 <a style="height:100px;width:80px;text-align:center;" href="javascript:void(0)"onclick="openJar('kxnc.jar','FarmMIDlet');">
 			<div style="height:64px;"> 
 				<img src="img/kxnc.png" style="margin-top:4px"></img>
 			</div>
-			  开心农场
+			  happy farm
 		 </a> 
 
 		 <a style="height:100px;width:80px;text-align:center;float: left;" href="javascript:void(0)"onclick="openJar('rf18.jar','GloftR8FP');">
@@ -537,13 +537,13 @@
 			<div style="height:64px;"> 
 				<img src="img/BounceTales.png" style="margin-top:4px"></img>
 			</div>
-			BounceTales
+			Bounce Tales
 		 </a> 
 		 <a style="height:100px;width:80px;text-align:center;" href="javascript:void(0)"onclick="openJar('jxlls.jar','baltorogames.system.Application');">
 			<div style="height:64px;"> 
 				<img src="img/jxlls.png" style="margin-top:4px"></img>
 			</div>
-			极限拉力赛2
+			Xtreme Rally 2
 		 </a> 
 		 
 		 </a> 
@@ -551,14 +551,14 @@
 			<div style="height:64px;"> 
 				<img src="img/kxct.png" style="margin-top:4px"></img>
 			</div>
-			开心餐厅2012
+			Happy Restaurant 2012
 		 </a> 
 		 
 		 <a style="height:100px;width:80px;text-align:center;" href="javascript:void(0)"onclick="openJar('ddz.jar','');">
 			<div style="height:64px;"> 
 				<img src="img/ddz.png" style="margin-top:20px"></img>
 			</div>
-			斗地主
+			Landlords
 		 </a> 
 
 		 <a style="height:100px;width:80px;text-align:center;" href="javascript:void(0)"onclick="openJar('gta.jar','SaintsRow2');">
@@ -572,7 +572,7 @@
 			<div style="height:64px;"> 
 				<img src="img/tyty.png" style="margin-top:10px"></img>
 			</div>
-			涂鸦跳跃
+			doodle jump
 		 </a> 
 
 		 
@@ -580,51 +580,50 @@
     </div>
 	<!-- <label><input id="mycheck1" name="enablekey" type="checkbox"  checked value="" />启用按键</label> -->
 	<!-- <label><input id="mycheck2" name="enablexy" type="checkbox" value="" />自适应缩放</label>  -->
-   <select id="canvasSize">
-	  <option value="size-240x320">显示尺寸: 240x320</option>
-	  <option value="size-320x240">显示尺寸: 320x240</option>
-	  <option value="size-360x640" >显示尺寸: 360x640</option>
-	  <option value="size-640x360">显示尺寸: 640x360</option>
-	  <option value="size-no" selected>显示尺寸: 无限制</option>
-	</select>
-	<select id="gamepadSize">
-		<option value="gamepad-0" selected>虚拟键盘-无</option>
-		<option value="gamepad-1">虚拟键盘-小</option>
-		<option value="gamepad-2">虚拟键盘-中</option>
-		<option value="gamepad-3">虚拟键盘-大</option>
-		<option value="gamepad-4">虚拟键盘-特大</option>
-	  </select>
+<select id="canvasSize">
+<option value="size-240x320">Display size: 240x320</option>
+<option value="size-320x240">Display size: 320x240</option>
+<option value="size-360x640" >Display size: 360x640</option>
+<option value="size-640x360">Display size: 640x360</option>
+<option value="size-no" selected>Display Size: Unlimited</option>
+</select>
+<select id="gamepadSize">
+<option value="gamepad-0" selected>Virtual keyboard-none</option>
+<option value="gamepad-1">Virtual keyboard - small</option>
+<option value="gamepad-2">Virtual keyboard-medium</option>
+<option value="gamepad-3">Virtual keyboard - large</option>
+<option value="gamepad-4">Virtual keyboard - extra large</option>
+</select>
 
-	  <select id="gameresize">
-		<option value="resize-1" selected>无缩放</option>
-		<option value="resize-1x5">缩放1.5倍</option>
-		<option value="resize-2">缩放2倍</option>
-		<option value="resize-2x5">缩放2.5倍</option>
-		<option value="resize-3">缩放3倍</option>
-	  </select>
-	</br>
+<select id="gameresize">
+<option value="resize-1" selected>No scaling</option>
+<option value="resize-1x5">Zoom 1.5 times</option>
+<option value="resize-2">Zoom 2 times</option>
+<option value="resize-2x5">Zoom 2.5 times</option>
+<option value="resize-3">Zoom 3 times</option>
+</select>
+</br>
 </br>
 <select id="localjars"> 
+</select>
+<button onclick="openLocalJar()">
+select local jar
+</button>
 
-  </select>
-	  <button onclick="openLocalJar()">
-		选择本地jar
-	  </button>
+<button onclick="loadLocalJar()">
+run local jar
+</button>
 
-	  <button onclick="loadLocalJar()">
-		运行本地jar
-	  </button>
+<button onclick="deleteLocalJar()">
+delete local jar
+</button>
 
-	  <button onclick="deleteLocalJar()">
-		删除本地jar
-	  </button>
-
-	</br>
+</br>
 </br>
 </br>
 <a href="updatelog.html">
-	更新日志
-	</a>
+update log
+</a>
 </br>
 
 </body>
